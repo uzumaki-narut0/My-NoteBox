@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#323339</color>
+    <color name="colorPrimaryDark">#323339</color>
+    <color name="colorAccent">#f26968</color>
+    <color name="limestone">#dfe2d2</color>
+    <color name="venice_verde">#6cbf84</color>
+    <color name="moss_river">#323339</color>
+    <color name="ruby_grapefruit">#f26968</color>
+    <color name="rosa">#f2ad9f</color>
+</resources>
