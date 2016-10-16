@@ -12,11 +12,20 @@
     android:background="#dfe2d2"
     tools:context="com.example.android.mytraveldiary.GoogleSignInActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:text="Checked"
+        android:padding="32dp"
+        android:background="@color/ruby_grapefruit"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_centerHorizontal="true"/>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/cityscape"
+        android:src="@drawable/checked"
 
         />
     <!--<TextView
@@ -37,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         />
+    <!--
     <Button
         android:layout_centerHorizontal="true"
         android:id="@+id/btn_guest_signin"
@@ -52,4 +62,5 @@
         android:visibility="visible"
         android:layout_marginBottom="10dp"/>
 
+-->
 </RelativeLayout>

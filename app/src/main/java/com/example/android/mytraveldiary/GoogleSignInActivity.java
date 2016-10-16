@@ -48,9 +48,9 @@ public class GoogleSignInActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_google_sign_in);
 
         btnSignIn = (SignInButton) findViewById(R.id.btn_sign_in);
-        guestSignInBtn =(Button)findViewById(R.id.btn_guest_signin);
+   //     guestSignInBtn =(Button)findViewById(R.id.btn_guest_signin);
         btnSignIn.setOnClickListener(this);
-        guestSignInBtn.setOnClickListener(this);
+   //     guestSignInBtn.setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -118,13 +118,13 @@ public class GoogleSignInActivity extends AppCompatActivity implements
             case R.id.btn_sign_in:
                 signIn();
                 break;
-            case R.id.btn_guest_signin:
+     /*       case R.id.btn_guest_signin:
                 Intent i = new Intent(GoogleSignInActivity.this, WelcomePageActivity.class);
 
                 i.putExtra("user_name","Kumar Swapnil");
                 i.putExtra("user_email","kumar.swapnil170@gmail.com");
                 startActivity(i);
-
+*/
 
         }
     }

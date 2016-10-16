@@ -8,7 +8,7 @@
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/limestone"
+    android:background="#cfd8dc"
     tools:context="com.example.android.mytraveldiary.WelcomePageActivity">
 
     <LinearLayout
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="8dp">
 
 
         <LinearLayout
@@ -52,6 +52,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="10dp"
                 android:onClick="openeventsList"
+                android:elevation="10dp"
                 android:focusable="false"
                 android:src="@android:drawable/ic_dialog_email" />
 
@@ -69,10 +70,11 @@
                 android:id="@+id/note_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/ruby_grapefruit"
+                android:background="#00bfa5"
                 android:paddingTop="22dp"
                 android:paddingBottom="22dp"
                 android:clickable="true"
+                android:textColor="#ffffff"
                 android:onClick="openNoteActivity"
                 android:gravity="center_horizontal"
                 android:textSize="20dp"
@@ -84,7 +86,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="22dp"
                 android:paddingBottom="22dp"
-                android:background="@color/venice_verde"
+                android:background="#ff6d00"
+                android:textColor="#ffffff"
                 android:gravity="center_horizontal"
                 android:textSize="20dp"
                 android:layout_weight="1"
@@ -95,6 +98,8 @@
     <ListView
         android:background="#ffffff"
         android:id="@+id/list_view"
+        android:divider="#cfd8dc"
+        android:dividerHeight="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
