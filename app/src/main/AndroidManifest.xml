@@ -18,7 +18,10 @@
         <activity android:name=".WelcomePageActivity" />
         <activity android:name=".NoteActivity" android:parentActivityName=".WelcomePageActivity">
 
+
         </activity>
+
+        <activity android:name=".MyPreferencesActivity"></activity>
     </application>
 
 </manifest>

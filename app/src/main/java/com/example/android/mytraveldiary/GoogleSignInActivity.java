@@ -5,18 +5,15 @@ package com.example.android.mytraveldiary;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -34,7 +31,9 @@ public class GoogleSignInActivity extends AppCompatActivity implements
 
     private static final String TAG = GoogleSignInActivity.class.getSimpleName();
     private static final int RC_SIGN_IN = 007;
-
+    public static String personName;
+    public static String personPhotoUrl;
+    public static String email;
     private GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog;
 
@@ -47,6 +46,16 @@ public class GoogleSignInActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_sign_in);
 
+        String fontPath = "fonts/amaticBold.ttf";
+
+        // text view label
+        TextView txtGhost = (TextView) findViewById(R.id.main_text_view);
+
+        // Loading Font Face
+        Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+
+        // Applying font
+        txtGhost.setTypeface(tf);
         btnSignIn = (SignInButton) findViewById(R.id.btn_sign_in);
    //     guestSignInBtn =(Button)findViewById(R.id.btn_guest_signin);
         btnSignIn.setOnClickListener(this);
@@ -99,9 +108,9 @@ public class GoogleSignInActivity extends AppCompatActivity implements
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
 
-            String personName = acct.getDisplayName();
-            String personPhotoUrl = acct.getPhotoUrl().toString();
-            String email = acct.getEmail();
+            GoogleSignInActivity.personName = acct.getDisplayName();
+            personPhotoUrl = acct.getPhotoUrl().toString();
+            email = acct.getEmail();
 
             updateUI(true,personName,email,personPhotoUrl);
         } else {
