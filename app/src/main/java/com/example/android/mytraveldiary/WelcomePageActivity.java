@@ -30,50 +30,54 @@ public class WelcomePageActivity extends AppCompatActivity {
 
     private static String yandexBaseUrl = "https://translate.yandex.net/api/v1.5/tr.json/translate?";
     private static String apiKey = "key=trnsl%2E1%2E1%2E20161017T145552Z%2Ea5d85c0d250180cc%2Ef4e858377ba1447c60464e8d4b89bb435feb3685";
-
     ArrayList<String> contentList;
+    private int toggleVal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_page);
 
-        TextView tv1 = (TextView)findViewById(R.id.welcome_tv_1);
+        TextView tv1 = (TextView) findViewById(R.id.welcome_tv_1);
         tv1.setText("Hey! " + GoogleSignInActivity.personName);
 
-        ImageView iv1 = (ImageView)findViewById(R.id.welcome_iv_1);
+        ImageView iv1 = (ImageView) findViewById(R.id.welcome_iv_1);
         Glide.with(getApplicationContext()).load(GoogleSignInActivity.personPhotoUrl)
                 .thumbnail(0.5f)
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(iv1);
 
-        //calling displayDatabase()
-
-        TranslationAsyncTask asynkTaskObject = new TranslationAsyncTask();
-        asynkTaskObject.execute(yandexBaseUrl + apiKey);
-
-
-        /*now display part
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this,R.layout.list_view,contentList);
-        ListView listView = (ListView)findViewById(R.id.list_view);
-        listView.setAdapter(itemsAdapter);*/
-    }
-
-    public void openeventsList(View v)
-    {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (toggleVal == 0) {
+                    LinearLayout fabExtender = (LinearLayout) findViewById(R.id.fab_layout);
+                    fabExtender.setVisibility(View.GONE);
+                    toggleVal = 1;
+                }
                 // Click action
-                LinearLayout fabExtender = (LinearLayout)findViewById(R.id.fab_layout);
-                fabExtender.setVisibility(View.VISIBLE);
+                else {
+                    LinearLayout fabExtender = (LinearLayout) findViewById(R.id.fab_layout);
+                    fabExtender.setVisibility(View.VISIBLE);
+                    toggleVal = 0;
+                }
+
             }
         });
+        TranslationAsyncTask asynkTaskObject = new TranslationAsyncTask();
+        asynkTaskObject.execute(yandexBaseUrl + apiKey);
+
     }
 
-    public void openNoteActivity(View v)
+   /* public void openeventsList(View v)
     {
+
+    }*/
+
+    public void openNoteActivity(View v) {
         Intent i = new Intent(WelcomePageActivity.this, NoteActivity.class);
         startActivity(i);
     }
@@ -111,8 +115,7 @@ public class WelcomePageActivity extends AppCompatActivity {
     }
 
 
-    private class TranslationAsyncTask extends AsyncTask<String, Void, ArrayList<String>>
-    {
+    private class TranslationAsyncTask extends AsyncTask<String, Void, ArrayList<String>> {
 
 
         @Override

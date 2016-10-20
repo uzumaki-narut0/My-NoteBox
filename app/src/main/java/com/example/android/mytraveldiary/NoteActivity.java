@@ -2,13 +2,11 @@ package com.example.android.mytraveldiary;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.design.widget.Snackbar;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -53,9 +51,7 @@ public class NoteActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     private void insertEventIntoDatabase(){
-        EditText titleView = (EditText) findViewById(R.id.canvas_title);
         EditText contentView = (EditText) findViewById(R.id.canvas_content);
-        String title = String.valueOf(titleView.getText());
         String content = String.valueOf(contentView.getText());
 
         DiaryDbHelper mDbHelper = new DiaryDbHelper(this);
@@ -68,7 +64,7 @@ public class NoteActivity extends AppCompatActivity {
 
         mDbObject.insert(DiaryContract.DiaryEntry.TABLE_NAME,null,values);
 
-        Toast.makeText(getApplicationContext(),"Event saved",Toast.LENGTH_SHORT ).show();
+        Toast.makeText(getBaseContext(), "Event saved", Toast.LENGTH_LONG).show();
 
     }
 

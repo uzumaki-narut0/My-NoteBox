@@ -54,7 +54,7 @@
                 android:layout_weight="2"
                 android:elevation="10dp"
                 android:focusable="false"
-                android:onClick="openeventsList"
+
                 android:src="@android:drawable/ic_dialog_email" />
 
         </LinearLayout>
