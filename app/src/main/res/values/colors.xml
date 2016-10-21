@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ffd600</color>
-    <color name="colorPrimaryDark">#ffeb3b</color>
+    <color name="colorPrimary">#455a64</color>
+    <color name="colorPrimaryDark">#607d8b</color>
     <color name="colorAccent">#f26968</color>
     <color name="limestone">#dfe2d2</color>
     <color name="venice_verde">#6cbf84</color>
